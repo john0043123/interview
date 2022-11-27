@@ -23,4 +23,8 @@ Route::get('/set-locale/{locale}', function ($locale) {
     session([
         'locale' => $locale
     ]);
+
+    if(!\Illuminate\Support\Facades\Request::ajax()) {
+        return redirect(url()->previous());
+    }
 });
