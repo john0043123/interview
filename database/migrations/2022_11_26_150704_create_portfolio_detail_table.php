@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('name')->comment('portfolio 名稱');
             $table->string('type');
-            $table->string('year', 5);
+            $table->string('year', 5)->nullable();
             $table->string('locale', 10);
             $table->enum('category', array_column(\App\Enums\PortfolioCategories::cases(), 'name'));
 

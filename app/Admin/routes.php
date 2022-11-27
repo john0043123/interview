@@ -13,4 +13,8 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
+    $router->resource('users', UserController::class);
+    $router->resource('portfolios', PortfolioController::class);
+    $router->resource('portfolio-categories', PortfolioCategoryController::class);
+    $router->resource('portfolio-langs', PortfolioLangController::class);
 });

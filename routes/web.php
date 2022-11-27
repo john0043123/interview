@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [\App\Http\Controllers\PortfolioController::class, 'index']);
+
+Route::get('/portfolio/{portfolio}', [\App\Http\Controllers\PortfolioController::class, 'detail']);
+
+Route::post('/filter/portfolio', [\App\Http\Controllers\PortfolioController::class, 'filter']);
+
+Route::get('/set-locale/{locale}', function ($locale) {
+    session([
+        'locale' => $locale
+    ]);
 });
